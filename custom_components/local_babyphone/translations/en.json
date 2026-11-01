@@ -1,0 +1,243 @@
+{
+  "title": "Avent local",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Avent local",
+        "description": "Enter an address or camera SSID (phi_…) and the local pairing key. Automatic discovery broadcasts the camera SSID on the local network. No cloud account is required.",
+        "data": {
+          "host": "IP address / hostname (optional with camera SSID)",
+          "pairing_key": "Local pairing key",
+          "name": "Name",
+          "camera_ssid": "Camera SSID (phi_…, for automatic discovery)"
+        }
+      },
+      "reconfigure": {
+        "title": "Change connection",
+        "description": "Leave the key blank to keep the stored key.",
+        "data": {
+          "host": "IP address / hostname",
+          "pairing_key": "New pairing key (optional)"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Cannot connect to the baby unit.",
+      "invalid_key": "Enter exactly 16 ASCII characters, or hex: and 32 hexadecimal digits.",
+      "invalid_host": "Enter an IP address or hostname, without a URL.",
+      "invalid_auth": "Local authentication failed. Check the pairing key.",
+      "invalid_camera_ssid": "Enter a camera SSID: phi_ followed by 12 hexadecimal characters.",
+      "discovery_failed": "No matching camera found. Check the SSID and local network, or enter an address.",
+      "discovery_ambiguous": "Multiple cameras answered the same query. No address was selected automatically.",
+      "host_or_ssid_required": "Enter an address or camera SSID."
+    },
+    "abort": {
+      "already_configured": "This babyphone is already configured."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Automatic camera discovery",
+        "description": "Use the camera direct-Wi-Fi SSID, not your home-network SSID. While opening a live view, discovery broadcasts this identifier locally. Leave blank to disable discovery. Saving does not connect to the camera.",
+        "data": {
+          "camera_ssid": "Camera SSID (phi_…, for automatic discovery)"
+        }
+      }
+    },
+    "error": {
+      "invalid_camera_ssid": "Enter a camera SSID: phi_ followed by 12 hexadecimal characters."
+    }
+  },
+  "entity": {
+    "camera": {
+      "camera": {
+        "name": "Camera"
+      }
+    },
+    "light": {
+      "night_light": {
+        "name": "Night light"
+      }
+    },
+    "media_player": {
+      "sounds": {
+        "name": "Sounds"
+      }
+    },
+    "sensor": {
+      "temperature": {
+        "name": "Temperature"
+      },
+      "rssi": {
+        "name": "Wi-Fi signal"
+      },
+      "audio_level": {
+        "name": "Sound level"
+      },
+      "light_remaining": {
+        "name": "Night light remaining time"
+      },
+      "lullaby_remaining": {
+        "name": "Sound remaining time"
+      }
+    },
+    "binary_sensor": {
+      "connection": {
+        "name": "Connection"
+      },
+      "sound": {
+        "name": "Sound detected"
+      },
+      "temperature_alarm": {
+        "name": "Temperature alert"
+      }
+    },
+    "select": {
+      "light_timer": {
+        "name": "Night light timer",
+        "state": {
+          "off": "No timer",
+          "5_minutes": "5 minutes",
+          "10_minutes": "10 minutes",
+          "20_minutes": "20 minutes",
+          "30_minutes": "30 minutes",
+          "60_minutes": "60 minutes",
+          "90_minutes": "90 minutes"
+        }
+      },
+      "sound_timer": {
+        "name": "Sound timer",
+        "state": {
+          "off": "No timer",
+          "5_minutes": "5 minutes",
+          "10_minutes": "10 minutes",
+          "20_minutes": "20 minutes",
+          "30_minutes": "30 minutes",
+          "60_minutes": "60 minutes",
+          "90_minutes": "90 minutes"
+        }
+      },
+      "sensitivity": {
+        "name": "Sound sensitivity",
+        "state": {
+          "loud_only": "Loud sounds only",
+          "medium": "Medium sensitivity",
+          "high": "High sensitivity",
+          "continuous": "Continuous audio"
+        }
+      }
+    },
+    "number": {
+      "temperature_low": {
+        "name": "Temperature lower limit"
+      },
+      "temperature_high": {
+        "name": "Temperature upper limit"
+      },
+      "noise_threshold": {
+        "name": "Local sound threshold"
+      }
+    },
+    "switch": {
+      "temperature_alert": {
+        "name": "Temperature alert enabled"
+      },
+      "noise_detection": {
+        "name": "Local sound detection"
+      },
+      "privacy": {
+        "name": "Privacy mode"
+      }
+    }
+  },
+  "exceptions": {
+    "invalid_value": {
+      "message": "Invalid setting value"
+    },
+    "missing_values": {
+      "message": "Setting values are missing"
+    },
+    "unknown_setting": {
+      "message": "Unknown setting"
+    },
+    "boolean_expected": {
+      "message": "Expected a boolean value"
+    },
+    "unknown_privacy": {
+      "message": "Unknown privacy setting"
+    },
+    "privacy_incomplete": {
+      "message": "Camera did not report a complete privacy state"
+    },
+    "privacy_unconfirmed": {
+      "message": "Camera did not confirm the complete privacy state"
+    },
+    "unknown_sensitivity": {
+      "message": "Unknown sensitivity setting"
+    },
+    "unconfirmed": {
+      "message": "Not confirmed by camera"
+    },
+    "unknown_command": {
+      "message": "Unknown command"
+    },
+    "unknown_field": {
+      "message": "Unknown field"
+    },
+    "temperature_limits": {
+      "message": "Lower limit must be below upper limit"
+    },
+    "camera_idle": {
+      "message": "Camera released. Open the live view first."
+    },
+    "unauthorized": {
+      "message": "No access to this camera"
+    },
+    "not_found": {
+      "message": "Not an Avent local camera"
+    },
+    "unknown_sound": {
+      "message": "Unknown camera sound"
+    },
+    "sound_expected": {
+      "message": "Expected a sound title or native sound number"
+    },
+    "media_closed": {
+      "message": "Live connection closed. Reconnect the live view."
+    },
+    "shutting_down": {
+      "message": "Integration is shutting down"
+    },
+    "session_exists": {
+      "message": "Session already exists"
+    },
+    "viewer_limit": {
+      "message": "A maximum of four simultaneous views is supported"
+    },
+    "not_authenticated": {
+      "message": "No authenticated connection to the baby unit"
+    },
+    "media_setup_closed": {
+      "message": "Live connection closed during setup."
+    },
+    "unknown_session": {
+      "message": "Unknown media session"
+    },
+    "live_required": {
+      "message": "Connect the live view first"
+    },
+    "talk_busy": {
+      "message": "Talkback is already active in another view"
+    },
+    "camera_not_connected": {
+      "message": "Camera is not connected yet"
+    },
+    "camera_timeout": {
+      "message": "No response from camera"
+    },
+    "invalid_control_reply": {
+      "message": "Invalid control response"
+    }
+  }
+}

@@ -1,0 +1,243 @@
+{
+  "title": "Avent local",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Avent local",
+        "description": "IP-Adresse oder Kamera-SSID (phi_…) und lokalen Kopplungsschlüssel eingeben. Die automatische Suche sendet die Kamera-SSID per UDP-Broadcast im lokalen Netz. Kein Cloud-Konto erforderlich.",
+        "data": {
+          "host": "IP-Adresse / Hostname (optional bei Kamera-SSID)",
+          "pairing_key": "Lokaler Kopplungsschlüssel",
+          "name": "Name",
+          "camera_ssid": "Kamera-SSID (phi_…, für automatische Suche)"
+        }
+      },
+      "reconfigure": {
+        "title": "Verbindung ändern",
+        "description": "Schlüsselfeld leer lassen, um den gespeicherten Schlüssel zu behalten.",
+        "data": {
+          "host": "IP-Adresse / Hostname",
+          "pairing_key": "Neuer Kopplungsschlüssel (optional)"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Baby-Einheit nicht erreichbar.",
+      "invalid_key": "Genau 16 ASCII-Zeichen oder hex: mit 32 Hex-Zeichen eingeben.",
+      "invalid_host": "IP-Adresse oder Hostname ohne URL eingeben.",
+      "invalid_auth": "Lokale Anmeldung fehlgeschlagen. Kopplungsschlüssel prüfen.",
+      "invalid_camera_ssid": "Kamera-SSID im Format phi_ mit 12 Hex-Zeichen eingeben.",
+      "discovery_failed": "Keine passende Kamera gefunden. SSID und lokales Netzwerk prüfen oder eine IP-Adresse eingeben.",
+      "discovery_ambiguous": "Mehrere Antworten für dieselbe Kamera gefunden. Keine Adresse automatisch ausgewählt.",
+      "host_or_ssid_required": "IP-Adresse oder Kamera-SSID eingeben."
+    },
+    "abort": {
+      "already_configured": "Dieses Babyphone ist bereits eingerichtet."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Automatische Kamerasuche",
+        "description": "Die Direkt-WLAN-SSID der Kamera (nicht die Heimnetz-SSID) dient als Kennung. Bei geöffneter Liveansicht wird sie per UDP-Broadcast im lokalen Netz gesucht. Leer lassen deaktiviert die Suche. Speichern startet keine Kamera-Verbindung.",
+        "data": {
+          "camera_ssid": "Kamera-SSID (phi_…, für automatische Suche)"
+        }
+      }
+    },
+    "error": {
+      "invalid_camera_ssid": "Kamera-SSID im Format phi_ mit 12 Hex-Zeichen eingeben."
+    }
+  },
+  "entity": {
+    "camera": {
+      "camera": {
+        "name": "Kamera"
+      }
+    },
+    "light": {
+      "night_light": {
+        "name": "Nachtlicht"
+      }
+    },
+    "media_player": {
+      "sounds": {
+        "name": "Klänge"
+      }
+    },
+    "sensor": {
+      "temperature": {
+        "name": "Temperatur"
+      },
+      "rssi": {
+        "name": "WLAN-Signal"
+      },
+      "audio_level": {
+        "name": "Geräuschpegel"
+      },
+      "light_remaining": {
+        "name": "Nachtlicht-Restzeit"
+      },
+      "lullaby_remaining": {
+        "name": "Klang-Restzeit"
+      }
+    },
+    "binary_sensor": {
+      "connection": {
+        "name": "Verbindung"
+      },
+      "sound": {
+        "name": "Geräusch erkannt"
+      },
+      "temperature_alarm": {
+        "name": "Temperaturalarm"
+      }
+    },
+    "select": {
+      "light_timer": {
+        "name": "Nachtlicht-Timer",
+        "state": {
+          "off": "Ohne Timer",
+          "5_minutes": "5 Minuten",
+          "10_minutes": "10 Minuten",
+          "20_minutes": "20 Minuten",
+          "30_minutes": "30 Minuten",
+          "60_minutes": "60 Minuten",
+          "90_minutes": "90 Minuten"
+        }
+      },
+      "sound_timer": {
+        "name": "Klang-Timer",
+        "state": {
+          "off": "Ohne Timer",
+          "5_minutes": "5 Minuten",
+          "10_minutes": "10 Minuten",
+          "20_minutes": "20 Minuten",
+          "30_minutes": "30 Minuten",
+          "60_minutes": "60 Minuten",
+          "90_minutes": "90 Minuten"
+        }
+      },
+      "sensitivity": {
+        "name": "Tonempfindlichkeit",
+        "state": {
+          "loud_only": "Nur laute Geräusche",
+          "medium": "Mittlere Empfindlichkeit",
+          "high": "Hohe Empfindlichkeit",
+          "continuous": "Dauerhafter Ton"
+        }
+      }
+    },
+    "number": {
+      "temperature_low": {
+        "name": "Temperatur-Untergrenze"
+      },
+      "temperature_high": {
+        "name": "Temperatur-Obergrenze"
+      },
+      "noise_threshold": {
+        "name": "Geräuschschwelle lokal"
+      }
+    },
+    "switch": {
+      "temperature_alert": {
+        "name": "Temperaturalarm aktiv"
+      },
+      "noise_detection": {
+        "name": "Geräuscherkennung lokal"
+      },
+      "privacy": {
+        "name": "Privatmodus"
+      }
+    }
+  },
+  "exceptions": {
+    "invalid_value": {
+      "message": "Ungültiger Einstellwert"
+    },
+    "missing_values": {
+      "message": "Einstellwerte fehlen"
+    },
+    "unknown_setting": {
+      "message": "Unbekannte Einstellung"
+    },
+    "boolean_expected": {
+      "message": "Boolescher Wert erwartet"
+    },
+    "unknown_privacy": {
+      "message": "Unbekannte Privateinstellung"
+    },
+    "privacy_incomplete": {
+      "message": "Kamera meldet keinen vollständigen Privatmodus-Status"
+    },
+    "privacy_unconfirmed": {
+      "message": "Privatmodus nicht vollständig von der Kamera bestätigt"
+    },
+    "unknown_sensitivity": {
+      "message": "Unbekannte Empfindlichkeit"
+    },
+    "unconfirmed": {
+      "message": "Nicht von der Kamera bestätigt"
+    },
+    "unknown_command": {
+      "message": "Unbekannter Befehl"
+    },
+    "unknown_field": {
+      "message": "Unbekanntes Feld"
+    },
+    "temperature_limits": {
+      "message": "Untergrenze muss unter der Obergrenze liegen"
+    },
+    "camera_idle": {
+      "message": "Kamera freigegeben. Zuerst die Liveansicht öffnen."
+    },
+    "unauthorized": {
+      "message": "Kein Zugriff auf diese Kamera"
+    },
+    "not_found": {
+      "message": "Keine Local-Babyphone-Kamera"
+    },
+    "unknown_sound": {
+      "message": "Unbekannter Kameraklang"
+    },
+    "sound_expected": {
+      "message": "Klangtitel oder native Klangnummer erwartet"
+    },
+    "media_closed": {
+      "message": "Liveverbindung wurde geschlossen. Erneuter Verbindungsaufbau erforderlich."
+    },
+    "shutting_down": {
+      "message": "Integration wird beendet"
+    },
+    "session_exists": {
+      "message": "Sitzung existiert bereits"
+    },
+    "viewer_limit": {
+      "message": "Maximal vier Ansichten gleichzeitig"
+    },
+    "not_authenticated": {
+      "message": "Keine authentifizierte Verbindung zur Baby-Einheit"
+    },
+    "media_setup_closed": {
+      "message": "Liveverbindung wurde während des Aufbaus geschlossen."
+    },
+    "unknown_session": {
+      "message": "Unbekannte Mediensitzung"
+    },
+    "live_required": {
+      "message": "Livebild zuerst verbinden"
+    },
+    "talk_busy": {
+      "message": "Gegensprechen bereits in einer anderen Ansicht aktiv"
+    },
+    "camera_not_connected": {
+      "message": "Kamera noch nicht verbunden"
+    },
+    "camera_timeout": {
+      "message": "Keine Antwort der Kamera"
+    },
+    "invalid_control_reply": {
+      "message": "Ungültige Kontrollantwort"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "aiortc",
+  "version": "1.15.0",
+  "source": "https://files.pythonhosted.org/packages/0c/5f/8435ba02c9278b6cec6f168db92e1d3280dd3af8f2225e20dc7c3be5ab22/aiortc-1.15.0-py3-none-any.whl",
+  "wheel_sha256": "4e1e54bff31a9c2cb654c7b7edc068085a7df53365e5df24a5cb24168e3f95f7",
+  "source_modifications": "Three absolute imports changed to package-relative imports in rate.py and contrib/signaling.py",
+  "compatibility_tests": "PyAV 19.0.0 / HA 2026.10.2"
+}

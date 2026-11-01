@@ -1,0 +1,28 @@
+{
+  "domain": "local_babyphone",
+  "name": "Avent local",
+  "codeowners": [
+    "@H3adsho0ot"
+  ],
+  "config_flow": true,
+  "dependencies": [
+    "camera",
+    "frontend",
+    "http",
+    "lovelace",
+    "websocket_api"
+  ],
+  "documentation": "https://github.com/H3adsho0ot/ha-local-babyphone",
+  "integration_type": "device",
+  "iot_class": "local_push",
+  "issue_tracker": "https://github.com/H3adsho0ot/ha-local-babyphone/issues",
+  "requirements": [
+    "aioice==0.10.2",
+    "av==19.0.0",
+    "google-crc32c==1.8.0",
+    "numpy==2.3.2",
+    "pyee==13.0.0",
+    "pylibsrtp==1.0.0"
+  ],
+  "version": "0.5.2"
+}
