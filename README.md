@@ -24,6 +24,10 @@ For a manual installation, copy `custom_components/local_babyphone` from the [re
 
 ## Using the card
 
+![Avent local dashboard card with temperature, audio activity, zoom and camera controls](docs/images/dashboard-card.png)
+
+*Card preview with an original illustration and simulated readings.*
+
 Open the card to start a live view. Several Home Assistant viewers share the same native camera connection. After the last viewer leaves, the integration releases the connection. Camera-derived sensors and local sound detection are available while the session is active.
 
 | Control | What it does |
