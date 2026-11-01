@@ -1,6 +1,11 @@
-# Avent local
+# Philips Avent SCD923/26 Baby Monitor for Home Assistant
 
-View a Philips Avent SCD923/26 baby unit from Home Assistant over your local network. The integration includes a dashboard card with live video, listening, talkback, temperature, Wi-Fi reception and camera controls. You need the local pairing key for your own baby unit. The integration connects directly over the LAN and requires no manufacturer account.
+> [!IMPORTANT]
+> **Pairing key guide coming soon.** Setup requires the 16-byte local pairing key for your baby unit. A guide to extracting the key from your own device will be published here soon.
+
+**Avent local** connects Home Assistant directly to your Philips Avent SCD923/26 over your home network. The dashboard card shows live video, room audio, temperature and Wi-Fi reception, with controls for talkback, the night light and lullabies.
+
+**No Tuya Cloud or internet connection is required for local use.** Once the integration and its dependencies are installed, Home Assistant communicates with the baby unit over the LAN, and you can open the dashboard from a browser or phone on the same network. HACS needs internet access to download the integration and its updates from GitHub.
 
 > [!WARNING]
 > **Use the Home Assistant live view and the original parent unit in turn.** When both try to use the camera at the same time, they can compete for the connection and the live picture or audio can drop. Before switching back to the handheld, close **all** Home Assistant live views and wait about **10 seconds** for the integration to release the camera. If a browser or phone disconnected abruptly, allow extra time for the lost session to be detected. Check that the handheld has live picture and sound before relying on it.
