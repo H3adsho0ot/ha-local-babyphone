@@ -14,6 +14,9 @@
 
 This sequence worked on a Philips Avent SCD923/26. Opening the QR screen creates **new Wi-Fi credentials** and can interrupt monitoring. Choose a time when you can take the monitor offline. If you already have a working key, you can use it directly during [installation](#install-with-hacs).
 
+> [!IMPORTANT]
+> **You have five minutes from opening the QR screen to complete pairing between the handheld and camera.** Have your local QR reader ready beforehand. Scan the code and let the handheld reconnect within this window. If the attempt times out, the handheld restores its previous credentials even if the camera has already accepted the new ones. Once the handheld has completed pairing, you can enter the saved key in Home Assistant afterward.
+
 1. **Switch the handheld parent unit to direct-only mode first.** Let it reconnect to the baby unit before opening the QR screen. If a Home Assistant live view is open, close it and allow about ten seconds for it to release the camera.
 2. **Generate the QR code on the handheld.** From the video or mode view, hold **MODE** (the elongated edge button beside a rectangle) and **Menu** (the round ≡ button below the directional pad) together for about **10 seconds**. Leave the code on screen.
 
