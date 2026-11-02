@@ -1,7 +1,7 @@
 # Philips Avent SCD923/26 Baby Monitor for Home Assistant
 
 > [!IMPORTANT]
-> **Pairing key guide coming soon.** Setup requires the 16-byte local pairing key for your baby unit. A guide to extracting the key from your own device will be published here soon.
+> Setup requires the baby unit's **16-character local pairing key**. You can get it from the parent unit's QR code by following the [pairing guide below](#get-the-local-pairing-key).
 
 **Avent local** connects Home Assistant directly to your Philips Avent SCD923/26 over your home network. The dashboard card shows live video, room audio, temperature and Wi-Fi reception, with controls for talkback, the night light and lullabies.
 
@@ -9,6 +9,18 @@
 
 > [!WARNING]
 > **Use the Home Assistant live view and the original parent unit in turn.** When both try to use the camera at the same time, they can compete for the connection and the live picture or audio can drop. Before switching back to the handheld, close **all** Home Assistant live views and wait about **10 seconds** for the integration to release the camera. If a browser or phone disconnected abruptly, allow extra time for the lost session to be detected. Check that the handheld has live picture and sound before relying on it.
+
+## Get the local pairing key
+
+This sequence worked on a Philips Avent SCD923/26. Opening the QR screen creates **new Wi-Fi credentials** and can interrupt monitoring. Choose a time when you can take the monitor offline. If you already have a working key, you can use it directly during [installation](#install-with-hacs).
+
+1. **Switch the handheld parent unit to direct-only mode first.** Let it reconnect to the baby unit before opening the QR screen. If a Home Assistant live view is open, close it and allow about ten seconds for it to release the camera.
+2. **Generate the QR code on the handheld.** From the video or mode view, hold **MODE** (the elongated edge button beside a rectangle) and **Menu** (the round ≡ button below the directional pad) together for about **10 seconds**. Leave the code on screen.
+3. **Read the key locally.** Photograph the display or use an offline QR reader that shows the decoded text. The text is a JSON object. Copy the **16 characters inside the quotes after `"passwd"`**, exactly as shown. Keep the photo and key private. The [synthetic example](https://github.com/H3adsho0ot/philips-avent-scd923-26-local-protocol/blob/main/examples/handheld-qr.json) shows where to find the field.
+4. **Let the baby unit scan the same code.** On the camera, hold **Nightlight** and **Lullaby** (music note) together for about **3 seconds**. When the nightlight pulses orange, show the handheld display to the camera. After the confirmation tone, keep the QR dialog open and wait for the handheld's live picture to return. Pressing the centre **OK** button cancels a pending attempt. The [illustrated pairing sequence](https://github.com/H3adsho0ot/philips-avent-scd923-26-local-protocol#re-pairing-from-the-handheld-display) identifies the buttons on both units.
+5. **Enter the key in Home Assistant.** For a new setup, use the key in the installation steps below. For an existing entry, go to **Settings → Devices & services → Avent local → ⋮ → Reconfigure**, keep the camera's current LAN address and paste the key as plain text. The integration checks the key against the camera before saving it.
+
+If the camera beeps but the handheld never reconnects, the camera may already have accepted the new key. The handheld reverts to its previous credentials when a pending attempt times out after **five minutes**. To retry, start in direct-only mode and use the freshly displayed code for both the camera scan and the Home Assistant key. Each new QR dialog generates a different pairing attempt.
 
 ## Install with HACS
 
