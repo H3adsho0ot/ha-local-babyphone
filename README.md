@@ -16,8 +16,27 @@ This sequence worked on a Philips Avent SCD923/26. Opening the QR screen creates
 
 1. **Switch the handheld parent unit to direct-only mode first.** Let it reconnect to the baby unit before opening the QR screen. If a Home Assistant live view is open, close it and allow about ten seconds for it to release the camera.
 2. **Generate the QR code on the handheld.** From the video or mode view, hold **MODE** (the elongated edge button beside a rectangle) and **Menu** (the round ≡ button below the directional pad) together for about **10 seconds**. Leave the code on screen.
-3. **Read the key locally.** Photograph the display or use an offline QR reader that shows the decoded text. The text is a JSON object. Copy the **16 characters inside the quotes after `"passwd"`**, exactly as shown. Keep the photo and key private. The [synthetic example](https://github.com/H3adsho0ot/philips-avent-scd923-26-local-protocol/blob/main/examples/handheld-qr.json) shows where to find the field.
-4. **Let the baby unit scan the same code.** On the camera, hold **Nightlight** and **Lullaby** (music note) together for about **3 seconds**. When the nightlight pulses orange, show the handheld display to the camera. After the confirmation tone, keep the QR dialog open and wait for the handheld's live picture to return. Pressing the centre **OK** button cancels a pending attempt. The [illustrated pairing sequence](https://github.com/H3adsho0ot/philips-avent-scd923-26-local-protocol#re-pairing-from-the-handheld-display) identifies the buttons on both units.
+
+   ![Handheld with a synthetic example QR code and independently drawn MODE and Menu button symbols](docs/images/handheld-pairing.jpg)
+
+   *Hold MODE and Menu together. The display in this photo has been replaced with a synthetic example QR code.*
+
+3. **Read the key locally.** Photograph the display or use an offline QR reader that shows the decoded text. The text is a JSON object. Copy the **16 characters inside the quotes after `"passwd"`**, exactly as shown. Keep the photo and key private.
+
+   The QR code in the example image decodes to the following synthetic data. Use the `passwd` from your own handheld's current QR code during setup.
+
+   ```json
+   {
+     "dev": "pu",
+     "ssid": "example-direct-link",
+     "passwd": "ExampleOnly00001"
+   }
+   ```
+
+4. **Let the baby unit scan the same code.** On the camera, hold **Nightlight** and **Lullaby** (music note) together for about **3 seconds**. When the nightlight pulses orange, show the handheld display to the camera. After the confirmation tone, keep the QR dialog open and wait for the handheld's live picture to return. Pressing the centre **OK** button cancels a pending attempt.
+
+   ![Camera buttons with Power on the left, Nightlight at upper right and Lullaby at lower right. Hold the two right buttons together for about three seconds.](docs/images/camera-scan-buttons.png)
+
 5. **Enter the key in Home Assistant.** For a new setup, use the key in the installation steps below. For an existing entry, go to **Settings → Devices & services → Avent local → ⋮ → Reconfigure**, keep the camera's current LAN address and paste the key as plain text. The integration checks the key against the camera before saving it.
 
 If the camera beeps but the handheld never reconnects, the camera may already have accepted the new key. The handheld reverts to its previous credentials when a pending attempt times out after **five minutes**. To retry, start in direct-only mode and use the freshly displayed code for both the camera scan and the Home Assistant key. Each new QR dialog generates a different pairing attempt.
